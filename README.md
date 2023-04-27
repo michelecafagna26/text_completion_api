@@ -38,7 +38,7 @@ check [here](https://pytorch.org/get-started/previous-versions/) for older versi
 ## Install the dependencies
 ```bash
 cd text_completion_api/service
-pip install -r requirements
+pip install -r requirements.txt
 ```
 # Run the server
 To run the server on localhost, run:
