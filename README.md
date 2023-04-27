@@ -3,8 +3,8 @@ A simple text completion API using GPT-J-6B.
 The API follows the [OpenAPI 3.0](https://swagger.io/specification/) specification
 
 ## Basic Requirements
-Python 3.9
-Pytorch > 1.1.0
+- Python 3.9
+- Pytorch > 1.1.0
 
 ## Usage
 Clone this repo:
