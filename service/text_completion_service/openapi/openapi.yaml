@@ -1,0 +1,77 @@
+openapi: 3.0.2
+info:
+  contact:
+    name: Text Completion API
+  description: Text Completion
+  title: Text Completion API
+  version: 1.0.0
+servers:
+- url: http://127.0.0.1:9994/api/
+paths:
+  /completion:
+    post:
+      operationId: completion
+      requestBody:
+        $ref: '#/components/requestBodies/CompletionRequestBody'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompletionResponse'
+          description: Text completion suggestions
+        "400":
+          description: Bad request response code with empty response body.
+        "401":
+          description: Unauthorized response code with empty response body.
+      summary: Provide 5 text completion suggestions for a given prompt
+      tags:
+      - Completion
+      x-openapi-router-controller: text_completion_service.controllers.completion_controller
+components:
+  requestBodies:
+    CompletionRequestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CompletionRequest'
+      required: true
+  schemas:
+    CompletionRequest:
+      example:
+        prompt: Hello world! How
+      properties:
+        prompt:
+          example: Hello world! How
+          type: string
+      required:
+      - prompt
+      x-body-name: completion_request
+    CompletionResponse:
+      example:
+        completions:
+        - Hello world! How are you doing? I'm good. I have a
+        - Hello world! How are you? I am doing great. I am so
+        - |-
+          Hello world! How are you?
+
+          I am not sure if you
+        - Hello world! How are you? I am good, thanks for asking.
+        - Hello world! How are you? I hope you are doing great. Today
+      properties:
+        completions:
+          example:
+          - Hello world! How are you doing? I'm good. I have a
+          - Hello world! How are you? I am doing great. I am so
+          - |-
+            Hello world! How are you?
+
+            I am not sure if you
+          - Hello world! How are you? I am good, thanks for asking.
+          - Hello world! How are you? I hope you are doing great. Today
+          items:
+            type: string
+          minItems: 5
+          type: array
+      required:
+      - completions
