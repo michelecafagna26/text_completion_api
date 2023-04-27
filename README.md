@@ -41,7 +41,7 @@ cd text_completion_api/service
 pip install -r requirements
 ```
 # Run the server
-To run the server in local run:
+To run the server on localhost, run:
 ```bash
 python3 -m text_completion_service
 ```
