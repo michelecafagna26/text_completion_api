@@ -20,7 +20,7 @@ source venv/bin/activate
 # optional
 pip install --upgrade pip
 ```
-This repo has been tested on:
+This repo has been tested with:
 
 ```txt
 torch                    2.0.0
