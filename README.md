@@ -51,7 +51,7 @@ http://127.0.0.1:9994/api/ui/
 ```
 You will see the Swagger UI from where you can test the API.
 
-Press on the `Try it out` button and edit the request with your prompt. For example:
+You'll see a single endpoint ```(post)/completion```. Press on the `Try it out` button and edit the request with your prompt. For example:
 
 ```json
 {
